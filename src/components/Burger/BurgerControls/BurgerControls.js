@@ -4,25 +4,26 @@ import classes from './BurgerControls.css';
 import BuildEachControl from './BuildEachControl/BuildEachControl';
 
 const controls = [
-  {label: 'Salad', type: 'salad'},
-  {label: 'Bacon', type: 'bacon'},
+  {label: 'Salad' , type: 'salad'},
+  {label: 'Bacon' , type: 'bacon'},
   {label: 'Cheese', type: 'cheese'},
-  {label: 'Meat', type: 'meat'}
+  {label: 'Meat'  , type: 'meat'}
 ]
 
 const buildControls = (props) => (
   <div className={classes.BuildControls}>
     {controls.map(ctrl => (
       <BuildEachControl
-        key={ctrl.label}
-        label={ctrl.label}
-        added={() => props.ingredientAdded(ctrl.type)}
-        removed={() => props.ingredientRemoved(ctrl.type)}
+        key     ={ctrl.label}
+        label   ={ctrl.label}
+        added   ={() => props.ingredientAdded(ctrl.type)}
+        removed ={() => props.ingredientRemoved(ctrl.type)}
         disabled={props.disabled[ctrl.type]}/>
     ))}
     <button
       className={classes.OrderButton}
-      disabled={!props.purchaseable}>ORDER NOW
+      disabled={!props.purchaseable}
+      onClick={props.ordered}>ORDER NOW
     </button>
   </div>
 );
